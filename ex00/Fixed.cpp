@@ -11,8 +11,8 @@ Fixed::Fixed(): _value(0)
 
 Fixed::Fixed( const Fixed & src )
 {
-	*this = src;
 	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
 }
 
 
@@ -35,7 +35,7 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	std::cout << "Copy assignation operator called" << std::endl;
 	if ( this != &rhs )
 	{
-		this->_value = rhs.getValue();
+		this->_value = rhs.getRawBits();
 	}
 	return *this;
 }
@@ -58,11 +58,13 @@ std::ostream &			operator<<( std::ostream & o, Fixed const & i )
 
 void	Fixed::setRawBits( int const raw )
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 }
 
 int	Fixed::getRawBits( void ) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return this->_value;
 }
 

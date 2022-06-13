@@ -19,9 +19,9 @@ class Fixed
 		void		setRawBits( int const raw );
 
 	private:
-		
-		int				_value;
-		static const int	_fractionalBits;
+
+		int					_value;
+		static const int	_fractionalBits = 8;
 };
 
 std::ostream &			operator<<( std::ostream & o, Fixed const & i );

@@ -1,10 +1,11 @@
-NAME		= 
+NAME		=	Fixed_ex00
 
 CC			=	c++
 
-CFLAGS		=	-Werror -Wall -Wextra -std=c++98
+CFLAGS		=	-Werror -Wall -Wextra -g3 -std=c++98 -I.
 
-SRCS		=	megaphone.cpp
+SRCS		=	main.cpp Fixed.cpp
+HEADER		=	Fixed.hpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
