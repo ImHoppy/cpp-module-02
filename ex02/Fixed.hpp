@@ -17,6 +17,12 @@ class Fixed
 		~Fixed();
 
 		Fixed &		operator=( Fixed const & rhs );
+		Fixed &		operator>( Fixed const & rhs );
+		Fixed &		operator<( Fixed const & rhs );
+		Fixed &		operator>=( Fixed const & rhs );
+		Fixed &		operator<=( Fixed const & rhs );
+		Fixed &		operator==( Fixed const & rhs );
+		Fixed &		operator!=( Fixed const & rhs );
 
 		int			getRawBits( void ) const;
 		void		setRawBits( int const raw );
@@ -32,4 +38,4 @@ class Fixed
 
 std::ostream &			operator<<( std::ostream & o, Fixed const & i );
 
-#endif /* FIXED_HPP */
+#endif // FIXED_HPP
