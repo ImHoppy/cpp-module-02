@@ -3,6 +3,9 @@ NAME		=	Fixed_ex02
 CC			=	c++
 
 CFLAGS		=	-Werror -Wall -Wextra -g3 -std=c++98 -I.
+ifeq ($(DEBUG), 1)
+	CFLAGS		+= -DDEBUG=1
+endif
 
 SRCS		=	main.cpp Fixed.cpp
 

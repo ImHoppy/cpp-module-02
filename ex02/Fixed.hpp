@@ -5,6 +5,8 @@
 # include <string>
 # include <cmath>
 
+#define TORAWBIT(A) roundf(A * (1<<_fractionalBits))
+
 class Fixed
 {
 
@@ -16,30 +18,35 @@ class Fixed
 		Fixed( float const & value );
 		~Fixed();
 
-		Fixed &		operator=( Fixed const & rhs );
-		Fixed &		operator>( Fixed const & rhs );
-		Fixed &		operator<( Fixed const & rhs );
-		Fixed &		operator>=( Fixed const & rhs );
-		Fixed &		operator<=( Fixed const & rhs );
-		Fixed &		operator==( Fixed const & rhs );
-		Fixed &		operator!=( Fixed const & rhs );
+		Fixed &			operator=( Fixed const & rhs );
+		Fixed &			operator>( Fixed const & rhs );
+		Fixed &			operator<( Fixed const & rhs );
+		Fixed &			operator>=( Fixed const & rhs );
+		Fixed &			operator<=( Fixed const & rhs );
+		Fixed &			operator==( Fixed const & rhs );
+		Fixed &			operator!=( Fixed const & rhs );
 
-		Fixed &		operator+( Fixed const & rhs );
-		Fixed &		operator-( Fixed const & rhs );
-		Fixed &		operator*( Fixed const & rhs );
-		Fixed &		operator/( Fixed const & rhs );
+		Fixed &			operator+( Fixed const & rhs );
+		Fixed &			operator-( Fixed const & rhs );
+		Fixed &			operator*( Fixed const & rhs );
+		Fixed &			operator/( Fixed const & rhs );
 
-		Fixed &		operator++( void );		// prefix
-		Fixed 		operator++( int );		// postfix
-		Fixed &		operator--( void );		// prefix
-		Fixed 		operator--( int );		// postfix
-		
+		Fixed &			operator++( void );		// prefix
+		Fixed 			operator++( int );		// postfix
+		Fixed &			operator--( void );		// prefix
+		Fixed 			operator--( int );		// postfix
 
-		int			getRawBits( void ) const;
-		void		setRawBits( int const raw );
+		static Fixed &	min(Fixed & a, Fixed & b);
+		static Fixed const &	min(Fixed const & a, Fixed const & b);
 
-		float		toFloat( void ) const;
-		int			toInt( void ) const;
+		static Fixed &	max(Fixed & a, Fixed & b);
+		static Fixed const &	max(Fixed const & a, Fixed const & b);
+
+		int				getRawBits( void ) const;
+		void			setRawBits( int const raw );
+
+		float			toFloat( void ) const;
+		int				toInt( void ) const;
 
 	private:
 
