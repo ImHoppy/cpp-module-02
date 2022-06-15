@@ -76,6 +76,77 @@ Fixed &	Fixed::operator<=( Fixed const & rhs )
 	return (this->_value <= rhs.getRawBits()) ? *this : (Fixed &)rhs;
 }
 
+Fixed &	Fixed::operator==( Fixed const & rhs )
+{
+	std::cout << "Equal operator called" << std::endl;
+	return (this->_value == rhs.getRawBits()) ? *this : (Fixed &)rhs;
+}
+
+Fixed &	Fixed::operator!=( Fixed const & rhs )
+{
+	std::cout << "Not equal operator called" << std::endl;
+	return (this->_value != rhs.getRawBits()) ? *this : (Fixed &)rhs;
+}
+
+Fixed &	Fixed::operator+( Fixed const & rhs )
+{
+	std::cout << "Addition operator called" << std::endl;
+	this->_value += rhs.getRawBits();
+	return *this;
+}
+
+Fixed &	Fixed::operator-( Fixed const & rhs )
+{
+	std::cout << "Substraction operator called" << std::endl;
+	this->_value -= rhs.getRawBits();
+	return *this;
+}
+
+Fixed &	Fixed::operator*( Fixed const & rhs )
+{
+	std::cout << "Multiplication operator called" << std::endl;
+	this->_value *= rhs.getRawBits();
+	return *this;
+}
+
+Fixed &	Fixed::operator/( Fixed const & rhs )
+{
+	std::cout << "Division operator called" << std::endl;
+	this->_value /= rhs.getRawBits();
+	return *this;
+}
+
+Fixed &	Fixed::operator++( void )
+{
+	std::cout << "Incrementation operator called" << std::endl;
+	this->_value++;
+	return *this;
+}
+
+Fixed	Fixed::operator++( int )
+{
+	std::cout << "Incrementation operator called" << std::endl;
+	Fixed	tmp(*this);
+	(*this)++;
+	return tmp;
+}
+
+Fixed &	Fixed::operator--( void )
+{
+	std::cout << "Decrementation operator called" << std::endl;
+	this->_value--;
+	return *this;
+}
+
+Fixed	Fixed::operator--( int )
+{
+	std::cout << "Decrementation operator called" << std::endl;
+	Fixed	tmp(*this);
+	(*this)--;
+	return tmp;
+}
+
+
 std::ostream &		operator<<( std::ostream & o, Fixed const & i )
 {
 	o << i.toFloat();

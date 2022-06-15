@@ -24,6 +24,17 @@ class Fixed
 		Fixed &		operator==( Fixed const & rhs );
 		Fixed &		operator!=( Fixed const & rhs );
 
+		Fixed &		operator+( Fixed const & rhs );
+		Fixed &		operator-( Fixed const & rhs );
+		Fixed &		operator*( Fixed const & rhs );
+		Fixed &		operator/( Fixed const & rhs );
+
+		Fixed &		operator++( void );		// prefix
+		Fixed 		operator++( int );		// postfix
+		Fixed &		operator--( void );		// prefix
+		Fixed 		operator--( int );		// postfix
+		
+
 		int			getRawBits( void ) const;
 		void		setRawBits( int const raw );
 
