@@ -7,6 +7,9 @@
 Point::Point(): _x(0), _y(0)
 {
 }
+Point::Point(float const x, float const y): _x(x), _y(y)
+{
+}
 
 Point::Point( const Point & src )
 {
@@ -31,15 +34,15 @@ Point &				Point::operator=( Point const & rhs )
 {
 	if ( this != &rhs )
 	{
-		this->_x.setRawBits(rhs.getX().getRawBits());
-		this->_y = rhs.getY();
+		(Fixed)this->_x = rhs.getX();
+		(Fixed)this->_y = rhs.getY();
 	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Point const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "x = " << i.getX() << " y = " << i.getY();
 	return o;
 }
 
