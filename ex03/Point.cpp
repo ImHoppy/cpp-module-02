@@ -11,9 +11,10 @@ Point::Point(float const x, float const y): _x(x), _y(y)
 {
 }
 
-Point::Point( const Point & src )
+Point::Point( const Point & src ): _x(src.getX()), _y(src.getY())
 {
-	*this = src;
+	// Why deep copy dont work???
+	// *this = src;
 }
 
 
@@ -42,7 +43,7 @@ Point &				Point::operator=( Point const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Point const & i )
 {
-	o << "x = " << i.getX() << " y = " << i.getY();
+	o << "x= " << i.getX() << ",\t" << "y= " <<  i.getY();
 	return o;
 }
 
@@ -57,12 +58,12 @@ std::ostream &			operator<<( std::ostream & o, Point const & i )
 */
 
 
-Fixed const					Point::getX(void) const
+Fixed const		&		Point::getX(void) const
 {
 	return this->_x;
 }
 
-Fixed const 				Point::getY(void) const
+Fixed const 	&		Point::getY(void) const
 {
 	return this->_y;
 }

@@ -18,11 +18,11 @@ class Point
 		Point();
 		Point(float const x, float const y);
 		Point( Point const & src );
-
 		~Point();
 
-		Fixed const	getX(void) const;
-		Fixed const	getY(void) const;
+
+		Fixed const & getX(void) const;
+		Fixed const & getY(void) const;
 
 		Point &		operator=( Point const & rhs );
 
