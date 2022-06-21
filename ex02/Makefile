@@ -21,7 +21,7 @@ $(NAME)		:	$(OBJS)
 				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean		:
-				rm -rf $(OBJS)
+				rm -rf $(OBJS) $(DEPS)
 
 fclean		:	clean
 				rm -f $(NAME)
