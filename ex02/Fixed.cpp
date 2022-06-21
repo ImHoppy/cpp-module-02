@@ -64,52 +64,52 @@ Fixed &				Fixed::operator=( Fixed const & rhs )
 	return *this;
 }
 
-Fixed &		Fixed::operator>( Fixed const & rhs )
+bool	Fixed::operator>( Fixed const & rhs )
 {
 	#ifdef DEBUG
 		std::cout << "Greater than operator called" << std::endl;
 	#endif
-	return (this->_value > rhs.getRawBits()) ? *this : (Fixed &)rhs;
+	return (this->_value > rhs.getRawBits());
 }
 
-Fixed &	Fixed::operator<( Fixed const & rhs )
+bool	Fixed::operator<( Fixed const & rhs )
 {
 	#ifdef DEBUG
 		std::cout << "Less than operator called" << std::endl;
 	#endif
-	return (this->_value < rhs.getRawBits()) ? *this : (Fixed &)rhs;
+	return (this->_value < rhs.getRawBits());
 }
 
-Fixed &	Fixed::operator>=( Fixed const & rhs )
+bool	Fixed::operator>=( Fixed const & rhs )
 {
 	#ifdef DEBUG
 		std::cout << "Greater than or equal operator called" << std::endl;
 	#endif
-	return (this->_value >= rhs.getRawBits()) ? *this : (Fixed &)rhs;
+	return (this->_value >= rhs.getRawBits());
 }
 
-Fixed &	Fixed::operator<=( Fixed const & rhs )
+bool	Fixed::operator<=( Fixed const & rhs )
 {
 	#ifdef DEBUG
 		std::cout << "Less tham or equal operator called" << std::endl;
 	#endif
-	return (this->_value <= rhs.getRawBits()) ? *this : (Fixed &)rhs;
+	return (this->_value <= rhs.getRawBits());
 }
 
-Fixed &	Fixed::operator==( Fixed const & rhs )
+bool	Fixed::operator==( Fixed const & rhs )
 {
 	#ifdef DEBUG
 		std::cout << "Equal operator called" << std::endl;
 	#endif
-	return (this->_value == rhs.getRawBits()) ? *this : (Fixed &)rhs;
+	return (this->_value == rhs.getRawBits());
 }
 
-Fixed &	Fixed::operator!=( Fixed const & rhs )
+bool	Fixed::operator!=( Fixed const & rhs )
 {
 	#ifdef DEBUG
 		std::cout << "Not equal operator called" << std::endl;
 	#endif
-	return (this->_value != rhs.getRawBits()) ? *this : (Fixed &)rhs;
+	return (this->_value != rhs.getRawBits());
 }
 
 Fixed &	Fixed::operator+( Fixed const & rhs )
@@ -210,22 +210,33 @@ int	Fixed::toInt( void ) const
 
 Fixed &	Fixed::min(Fixed & a, Fixed & b)
 {
-	return (a < b);
+	return (a.getRawBits() < b.getRawBits()) ? a : b;
+}
+/*
+	return (a.getRawBits() > rhs.getRawBits()) ? a : b;
 }
 
+Fixed &	Fixed::operator<( Fixed const & rhs )
+{
+	#ifdef DEBUG
+		std::cout << "Less than operator called" << std::endl;
+	#endif
+	return (this->_value < rhs.getRawBits()) ? *this : (Fixed &)rhs;
+}
+*/
 Fixed const &	Fixed::min(Fixed const & a, Fixed const & b)
 {
-	return ((Fixed &) a < b);
+	return (a.getRawBits() < b.getRawBits()) ? a : b;
 }
 
 Fixed &	Fixed::max(Fixed & a, Fixed & b)
 {
-	return (a > b);
+	return (a.getRawBits() > b.getRawBits()) ? a : b;
 }
 
 Fixed const &	Fixed::max(Fixed const & a, Fixed const & b)
 {
-	return ((Fixed &)a > b);
+	return (a.getRawBits() > b.getRawBits()) ? a : b;
 }
 
 /*
