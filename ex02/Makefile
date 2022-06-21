@@ -26,7 +26,11 @@ clean		:
 fclean		:	clean
 				rm -f $(NAME)
 
-re			:	fclean all
+re			:	fclean
+				$(MAKE)
+
+debug		:	fclean
+				$(MAKE) DEBUG=1
 
 -include $(DEPS)
 
