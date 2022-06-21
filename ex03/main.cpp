@@ -43,12 +43,13 @@ void	BSP_TEST( Point const a, Point const b, Point const c, Point const point)
 	"\tc( " << c << "\t)\n" << std::endl;
 
 	std::cout << (bsp(a, b, c, point) == true ? C_GREEN : C_RED);
-	std::cout << "The point " << (bsp(a, b, c, point) == true ? "is" : "is not") << " in the triangle"C_RESET << std::endl;
+	std::cout << "The point " << (bsp(a, b, c, point) == true ? "is" : "is not") << " in the triangle" C_RESET << std::endl;
 	std::cout << std::endl << std::endl;
 }
 
 int main(void)
 {
+	//https://imgur.com/a/UIcvSB9
 	std::cout << "\033c \033[33m\n";
 	std::cout << TRIANGLE << C_RESET <<"\n\n";
 	{

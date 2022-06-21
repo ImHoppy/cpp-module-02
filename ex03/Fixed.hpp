@@ -19,17 +19,18 @@ class Fixed
 		~Fixed();
 
 		Fixed &			operator=( Fixed const & rhs );
-		Fixed &			operator>( Fixed const & rhs );
-		Fixed &			operator<( Fixed const & rhs );
-		Fixed &			operator>=( Fixed const & rhs );
-		Fixed &			operator<=( Fixed const & rhs );
-		Fixed &			operator==( Fixed const & rhs );
-		Fixed &			operator!=( Fixed const & rhs );
+		
+		bool			operator>( Fixed const & rhs );
+		bool			operator<( Fixed const & rhs );
+		bool			operator>=( Fixed const & rhs );
+		bool			operator<=( Fixed const & rhs );
+		bool			operator==( Fixed const & rhs );
+		bool			operator!=( Fixed const & rhs );
 
-		Fixed &			operator+( Fixed const & rhs );
-		Fixed &			operator-( Fixed const & rhs );
-		Fixed &			operator*( Fixed const & rhs );
-		Fixed &			operator/( Fixed const & rhs );
+		Fixed			operator+( Fixed const & rhs );
+		Fixed			operator-( Fixed const & rhs );
+		Fixed			operator*( Fixed const & rhs );
+		Fixed			operator/( Fixed const & rhs );
 
 		Fixed &			operator++( void );		// prefix
 		Fixed 			operator++( int );		// postfix
