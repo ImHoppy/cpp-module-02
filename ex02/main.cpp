@@ -7,7 +7,9 @@
 #define C_BLUE "\033[94m"
 #define C_RESET "\033[0m"
 
-#define TEST(A, B, C) std::cout << A << "\t\t" << C_BLUE #B C_RESET << "\t" << C << C_GREEN "\t\t= " C_RESET << (A B C) << std::endl;
+#define TEST(A, B, C) std::cout << A << "\t\t\t" << C_BLUE #B C_RESET << "\t" << C << C_GREEN "\t\t= " C_RESET << (A B C) << std::endl;
+
+#define TESTFUN(A, B, C) std::cout << A << "\t\t" << C_BLUE #B C_RESET << "\t" << C << C_GREEN "\t\t= " C_RESET << B(A, C) << std::endl;
 
 #define LINE std::cout << std::endl;
 
@@ -34,7 +36,7 @@ int main( void ) {
 
 		std::cout << C_BLUE "b" C_RESET << std::endl;
 		std::cout << b << std::endl;
-		
+
 		std::cout << C_BLUE "max( a, b )" C_RESET << std::endl;
 		std::cout << Fixed::max( a, b ) << std::endl;
 	}
@@ -64,6 +66,10 @@ int main( void ) {
 		TEST(a, -, b)
 		TEST(a, *, b)
 		TEST(a, /, b)
+		LINE
+
+		TESTFUN(a, Fixed::min, b)
+		TESTFUN(a, Fixed::max, b)
 	}
 	return 0;
 }
